@@ -1,15 +1,16 @@
-import { useState } from "react"
+import { useState } from "react";
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   const [count, setCount] = useState(0);
 
   function handleClick() {
-    setCount(count + 1)
+    setCount(count + 1);
   }
 
   function CountButton() {
     return (
-      <button onClick={handleClick}>
+      <button className={styles.button} onClick={handleClick}>
         Push Me
       </button>
     );
@@ -17,13 +18,9 @@ export default function Home() {
 
   return (
     <>
-      <h1>
-        I'm the Count(er)
-      </h1>
+      <h1 className={styles.title}>I'm the Count(er)</h1>
       <CountButton />
-      <h2>
-        {count}
-      </h2>
+      <h2 className={styles.counter}>{count}</h2>
     </>
   );
 }

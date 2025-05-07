@@ -1,13 +1,13 @@
 import { useState } from "react"
 
 export default function Home() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   function handleClick() {
     setCount(count + 1)
   }
 
-  function CountButton({ count, setCount}) {
+  function CountButton() {
     return (
       <button onClick={handleClick}>
         Push Me
@@ -20,10 +20,10 @@ export default function Home() {
       <h1>
         I'm the Count(er)
       </h1>
-      <CountButton/>
+      <CountButton />
       <h2>
         {count}
       </h2>
     </>
-  )
+  );
 }

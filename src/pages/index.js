@@ -32,8 +32,8 @@ export default function Home() {
     );
   }
 
-  function ResetButton() {
-    return (
+  function ResetButton({ count }) {
+    return (count != 0 &&
       <button className={styles.button} onClick={resetCounter}>
         Reset
       </button>
@@ -46,9 +46,11 @@ export default function Home() {
       <div className={styles.buttonContainer}>
         <IncreaseButton />
         <DecreaseButton />
-        <ResetButton />
       </div>
       <h2 className={styles.counter}>{count}</h2>
+      <div className={styles.buttonContainer}>
+        <ResetButton count={count} />
+      </div>
     </>
   );
 }

@@ -4,10 +4,6 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   const [count, setCount] = useState(0);
 
-  function resetCounter() {
-    setCount(0)
-  }
-
   function CounterButton({ onClick, children }) {
     return (
       <button className={styles.button} onClick={onClick}>
@@ -17,6 +13,10 @@ export default function Home() {
   }
 
   function ResetButton({ count }) {
+    function resetCounter() {
+      setCount(0)
+    }
+
     return (count != 0 &&
       <button className={styles.button} onClick={resetCounter}>
         Reset

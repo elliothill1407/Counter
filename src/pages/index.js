@@ -25,7 +25,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <main>
       <h1 className={styles.title}>I'm the Count(er)</h1>
       <div className={styles.buttonContainer}>
         <CounterButton onClick={() => setCount(count + 1)}>+1</CounterButton>
@@ -35,6 +35,6 @@ export default function Home() {
       <div className={styles.buttonContainer}>
         <ResetButton count={count} />
       </div>
-    </>
+    </main>
   );
 }

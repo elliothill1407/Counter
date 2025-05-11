@@ -4,22 +4,50 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   const [count, setCount] = useState(0);
 
-  function handleClick() {
+  function incrementCounter() {
     setCount(count + 1);
   }
 
-  function CountButton() {
+  function decrementCounter() {
+    setCount(count - 1);
+  }
+
+  function resetCounter() {
+    setCount(0)
+  }
+
+  function IncreaseButton() {
     return (
-      <button className={styles.button} onClick={handleClick}>
-        Push Me
+      <button className={styles.button} onClick={incrementCounter}>
+        +1
       </button>
     );
+  }
+
+  function DecreaseButton() {
+    return (
+      <button className={styles.button} onClick={decrementCounter}>
+        -1
+      </button>
+    );
+  }
+
+  function ResetButton() {
+    return (
+      <button className={styles.button} onClick={resetCounter}>
+        Reset
+      </button>
+    )
   }
 
   return (
     <>
       <h1 className={styles.title}>I'm the Count(er)</h1>
-      <CountButton />
+      <div className={styles.buttonContainer}>
+        <IncreaseButton />
+        <DecreaseButton />
+        <ResetButton />
+      </div>
       <h2 className={styles.counter}>{count}</h2>
     </>
   );

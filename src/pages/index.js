@@ -17,7 +17,7 @@ export default function Home() {
       setCount(0)
     }
 
-    return (count != 0 &&
+    return (count !== 0 &&
       <button className={styles.button} onClick={resetCounter}>
         Reset
       </button>

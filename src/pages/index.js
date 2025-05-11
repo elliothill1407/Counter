@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from '../styles/Home.module.css';
+import Button from "@/components/Button";
 
 export default function Home() {
   const [count, setCount] = useState(0);
@@ -7,14 +8,6 @@ export default function Home() {
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count - 1);
   const reset = () => setCount(0);
-
-  function Button({ onClick, disabled, children }) {
-    return (
-      <button className={styles.button} onClick={onClick} disabled={disabled}>
-        {children}
-      </button>
-    );
-  }
 
   return (
     <main>

@@ -4,36 +4,32 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   const [count, setCount] = useState(0);
 
-  function CounterButton({ onClick, children }) {
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
+  const reset = () => setCount(0);
+
+  function Button({ onClick, disabled, children }) {
     return (
-      <button className={styles.button} onClick={onClick}>
+      <button className={styles.button} onClick={onClick} disabled={disabled}>
         {children}
       </button>
     );
-  }
-
-  function ResetButton({ count }) {
-    function resetCounter() {
-      setCount(0)
-    }
-
-    return (count !== 0 &&
-      <button className={styles.button} onClick={resetCounter}>
-        Reset
-      </button>
-    )
   }
 
   return (
     <main>
       <h1 className={styles.title}>I'm the Count(er)</h1>
       <div className={styles.buttonContainer}>
-        <CounterButton onClick={() => setCount(count + 1)}>+1</CounterButton>
-        <CounterButton onClick={() => setCount(count - 1)}>-1</CounterButton>
+        <Button onClick={increment}>+1</Button>
+        <Button onClick={decrement}>-1</Button>
       </div>
       <h2 className={styles.counter}>{count}</h2>
       <div className={styles.buttonContainer}>
-        <ResetButton count={count} />
+        {count !== 0 &&
+          <Button onClick={reset} disabled={count === 0}>
+            Reset
+          </Button>
+        }
       </div>
     </main>
   );
